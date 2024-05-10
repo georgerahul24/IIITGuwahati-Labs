@@ -1,0 +1,233 @@
+show databases;
+create database Assignment2;
+use Assignment2;
+
+create table department
+(
+    did      int primary key,
+    dname    varchar(20),
+    Building varchar(20),
+    Budget   NUMERIC(8, 2)
+
+);
+
+create table faculty
+(
+    fid    int primary key,
+    fname  varchar(20),
+    did    int,
+    salary NUMERIC(8, 2),
+    foreign key (did) references department (did)
+);
+
+create table student
+(
+    sid   int primary key,
+    sname varchar(20),
+    age   int,
+    did   int,
+    foreign key (did) references department (did)
+);
+
+create table course
+(
+    cid    int primary key,
+    cname  varchar(20),
+    credit int,
+    did    int,
+    foreign key (did) references department (did)
+);
+
+create table teaches
+(
+    fid int,
+    cid int,
+    foreign key (fid) references faculty (fid),
+    foreign key (cid) references course (cid),
+    primary key (fid, cid)
+
+);
+
+create table takes
+(
+    sid int,
+    cid int,
+    primary key (sid, cid),
+    foreign key (sid) references student (sid),
+    foreign key (cid) references course (cid)
+);
+
+create table advisor
+(
+    sid   int primary key,
+    fid   int,
+    title varchar(100),
+    foreign key (fid) references faculty (fid)
+
+);
+
+-- Values for Department
+INSERT INTO Assignment2.department (did, dname, Building, Budget)
+VALUES (1, 'CSE', 'Main', 10000.00);
+
+INSERT INTO Assignment2.department (did, dname, Building, Budget)
+VALUES (2, 'ECE', 'Annex1', 5000.00);
+
+INSERT INTO Assignment2.department (did, dname, Building, Budget)
+VALUES (3, 'EEE', 'Annex2', 4000.00);
+
+INSERT INTO Assignment2.department (did, dname, Building, Budget)
+VALUES (4, 'Mech', 'Annex3', 30000.00);
+
+
+-- values for student
+INSERT INTO Assignment2.student (sid, sname, age, did)
+VALUES (1, 'George', 19, 2);
+
+INSERT INTO Assignment2.student (sid, sname, age, did)
+VALUES (2, 'Rahul', 20, 1);
+
+INSERT INTO Assignment2.student (sid, sname, age, did)
+VALUES (3, 'Rupesh', 25, 4);
+
+INSERT INTO Assignment2.student (sid, sname, age, did)
+VALUES (4, 'Rohit', 17, 3);
+
+INSERT INTO Assignment2.student (sid, sname, age, did)
+VALUES (5, 'Sajitha', 19, 1);
+
+
+-- values for faculty
+
+INSERT INTO Assignment2.faculty (fid, fname, did, salary)
+VALUES (1, 'Sumit', 1, 30000.00);
+
+INSERT INTO Assignment2.faculty (fid, fname, did, salary)
+VALUES (2, 'Akshit', 3, 20000.00);
+
+INSERT INTO Assignment2.faculty (fid, fname, did, salary)
+VALUES (3, 'KT', 2, 40000.00);
+
+INSERT INTO Assignment2.faculty (fid, fname, did, salary)
+VALUES (4, 'Upasana', 4, 10000.00);
+
+-- values for course
+INSERT INTO Assignment2.course (cid, cname, credit, did)
+VALUES (1, 'Algorithms', 10, 1);
+
+INSERT INTO Assignment2.course (cid, cname, credit, did)
+VALUES (2, 'CyberSecurity', 20, 1);
+
+INSERT INTO Assignment2.course (cid, cname, credit, did)
+VALUES (3, 'Communication', 50, 2);
+
+INSERT INTO Assignment2.course (cid, cname, credit, did)
+VALUES (4, 'Circuits', 35, 3);
+
+INSERT INTO Assignment2.course (cid, cname, credit, did)
+VALUES (5, 'Drone', 23, 4);
+
+INSERT INTO Assignment2.course (cid, cname, credit, did)
+VALUES (6, 'CAD', 20, 4);
+
+-- values for teaches
+INSERT INTO Assignment2.teaches (fid, cid)
+VALUES (1, 3);
+
+INSERT INTO Assignment2.teaches (fid, cid)
+VALUES (1, 2);
+
+INSERT INTO Assignment2.teaches (fid, cid)
+VALUES (2, 1);
+
+INSERT INTO Assignment2.teaches (fid, cid)
+VALUES (4, 3);
+
+INSERT INTO Assignment2.teaches (fid, cid)
+VALUES (3, 5);
+
+INSERT INTO Assignment2.teaches (fid, cid)
+VALUES (1, 6);
+
+INSERT INTO Assignment2.teaches (fid, cid)
+VALUES (3, 4);
+
+INSERT INTO Assignment2.teaches (fid, cid)
+VALUES (2, 6);
+
+INSERT INTO Assignment2.teaches (fid, cid)
+VALUES (3, 2);
+
+INSERT INTO Assignment2.teaches (fid, cid)
+VALUES (4, 6);
+
+-- values for takes
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (1, 1);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (1, 2);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (1, 3);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (1, 4);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (1, 5);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (1, 6);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (2, 3);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (2, 5);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (2, 6);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (3, 4);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (3, 6);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (4, 1);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (4, 3);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (4, 5);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (5, 2);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (5, 3);
+
+INSERT INTO Assignment2.takes (sid, cid)
+VALUES (5, 6);
+
+-- values for advisors
+INSERT INTO Assignment2.advisor (sid, fid, title)
+VALUES (1, 1, 'DBMS');
+
+INSERT INTO Assignment2.advisor (sid, fid, title)
+VALUES (2, 2, 'OS');
+
+INSERT INTO Assignment2.advisor (sid, fid, title)
+VALUES (3, 1, 'OS');
+
+INSERT INTO Assignment2.advisor (sid, fid, title)
+VALUES (4, 3, 'DBMS');
+
+INSERT INTO Assignment2.advisor (sid, fid, title)
+VALUES (5, 4, 'OS');
+
+
+
