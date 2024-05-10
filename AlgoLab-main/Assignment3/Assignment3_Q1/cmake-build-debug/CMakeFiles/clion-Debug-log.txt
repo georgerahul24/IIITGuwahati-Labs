@@ -1,0 +1,8 @@
+/Users/gr/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Users/gr/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/gr/Desktop/AlgoLab/Assignment3/Assignment3_Q1 -B /Users/gr/Desktop/AlgoLab/Assignment3/Assignment3_Q1/cmake-build-debug
+-- Found Python: /opt/homebrew/Frameworks/Python.framework/Versions/3.11/bin/python3.11 (found version "3.11.3") found components: Interpreter 
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done (3.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/gr/Desktop/AlgoLab/Assignment3/Assignment3_Q1/cmake-build-debug

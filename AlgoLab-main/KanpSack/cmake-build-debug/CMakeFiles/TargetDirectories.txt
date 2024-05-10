@@ -1,0 +1,3 @@
+/Users/gr/Desktop/AlgoLab/KanpSack/cmake-build-debug/CMakeFiles/KanpSack.dir
+/Users/gr/Desktop/AlgoLab/KanpSack/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/gr/Desktop/AlgoLab/KanpSack/cmake-build-debug/CMakeFiles/rebuild_cache.dir

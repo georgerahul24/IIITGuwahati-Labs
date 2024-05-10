@@ -1,0 +1,4 @@
+# ninja log v5
+1	38	1692123552208453225	build.ninja	b7b8331bc893581f
+6	344	1692123201016883406	CMakeFiles/BigNumberMultiplication.dir/main.cpp.o	bf087b1a136b7fa5
+344	376	1692123201051467661	BigNumberMultiplication	8b2bf42cb38a5f0c

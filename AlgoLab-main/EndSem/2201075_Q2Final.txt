@@ -1,0 +1,342 @@
+#include "UndirectedGraphWithWeightsVer2.hpp"
+#include "vector"
+#include "set"
+#include "queue"
+
+using namespace std;
+
+
+class Dijstra {
+
+    struct Comparator {
+        bool operator()(const Vertex *a, const Vertex *b) const {
+            return a->d > b->d;
+        }
+    };
+
+    void printSet(set<Vertex *> *s) {
+        for (auto ver: *s) {
+            printf("|%d-(%d)| -> ", ver->value, ver->d);
+        }
+        printf("\n");
+    }
+
+    void printQueue(vector<Vertex *> *s) {
+        for (auto ver: *s) {
+            printf("%d[%d] -> ", ver->value, ver->d);
+        }
+        printf("\n");
+    }
+
+
+public:
+    Dijstra(const string &filename) {
+        int sourceVertex, destinationVertex;
+
+        printf("Enter the Source Vertex: ");
+        cin >> sourceVertex;
+        printf("Enter the Destination Vertex: ");
+        cin >> destinationVertex;
+
+
+        UndirectedGraphWithWeights G(filename);
+        G.createEdges();
+        G.createAdjacencyListFromMatrix();
+
+
+        vector<Vertex *> pq;
+        set<Vertex *> notVisited;
+        set<Vertex *> visted;
+
+        for (int i = 0; i < G.n; i++) {
+            notVisited.insert(&G.vertices[i]);
+            pq.push_back(&G.vertices[i]);
+        }
+
+        G.vertices[sourceVertex].d = 0;
+        G.vertices[sourceVertex].pi = &G.vertices[0];
+
+        //make_heap(pq.begin(), pq.end(), Comparator()); Now, in like constant time we can make the heap
+
+        while (!pq.empty()) {
+            Vertex *ver = pq.at(0);
+            for (adjacencyListEdge v: (G.adjacencyList->at(ver->value))) {
+
+                if (v.vertex->d > ver->d + v.weight) {
+                    v.vertex->d = ver->d + v.weight;
+                    v.vertex->pi = ver;
+                }
+
+
+            }
+
+            pq.erase(pq.begin());
+            make_heap(pq.begin(), pq.end(), Comparator());
+        }
+        for (Vertex i: G.vertices) {
+            printf("%d : %d Parent -> %d\n", i.value, i.d, i.pi->value);
+        }
+        printf("The distance from the source vertex to the destination vertex is : %d",
+               G.vertices.at(destinationVertex).d);
+
+        int distance = G.vertices.at(destinationVertex).d;
+        int midpoint = distance / 2;
+
+        int vertex = -1;
+        Vertex t = G.vertices.at(destinationVertex);
+        while (distance >= midpoint) {
+
+            if (distance == midpoint) {
+                vertex = t.value;
+                break;
+            };
+            distance = distance + (t.pi->d - t.d);
+            t = *t.pi;
+        }
+
+        printf("\nThe Vertex t is: %d", vertex);
+
+
+    }
+
+
+};
+
+
+This is the Graph Implementation
+
+
+#include <cstdio>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include "vector"
+
+#pragma once
+using namespace std;
+
+
+struct Vertex {
+    int value = -1;
+    int color = -1;
+    int d = INT32_MAX;
+    int f = 0;
+    Vertex *pi = nullptr;
+
+    Vertex() {
+
+    }
+
+    Vertex(int value, int status) {
+        this->value = value;
+        this->color = status;
+    }
+};
+
+struct Edge {
+
+    Vertex *u = nullptr;
+    Vertex *v = nullptr;
+    int weight;
+
+    Edge(Vertex *u, Vertex *v, int weight) {
+        this->u = u;
+        this->v = v;
+        this->weight = weight;
+    }
+};
+
+struct adjacencyListEdge {
+    Vertex *vertex;
+    int weight;
+
+    adjacencyListEdge(Vertex *vertex, int weight) {
+        this->vertex = vertex;
+        this->weight = weight;
+    }
+
+};
+
+
+class UndirectedGraphWithWeights {
+public:
+    int n = 0;
+    int m = 0;
+    int **adjacencyMatrix = nullptr;
+    vector<vector<adjacencyListEdge>> *adjacencyList = nullptr;
+    vector<Vertex> vertices;
+    vector<Edge> edges;
+
+    UndirectedGraphWithWeights() {
+        cout << "Enter the number of Vertices: ";
+        cin >> n;
+
+        cout << "Enter the number of Edges: ";
+        cin >> m;
+        createGraph(n, m);
+    }
+
+    explicit UndirectedGraphWithWeights(bool createEmpty) {
+
+    }
+
+    explicit UndirectedGraphWithWeights(const string &filename) {
+        std::ifstream f(filename);
+        string line;
+
+
+        std::getline(f, line);
+        std::istringstream iss(line);
+        iss >> this->n >> this->m;
+        adjacencyMatrix = new int *[n];
+
+        for (int i = 0; i < n; i++) {
+            adjacencyMatrix[i] = new int[n];
+        }
+        for (int i = 0; i < n; i++) {
+            vertices.emplace_back(i, 0);
+        }
+        for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) adjacencyMatrix[i][j] = INT32_MAX;
+
+//        cout << "Edges Detected: " << endl;
+        int tm = m;
+        while (tm--) {
+
+            std::getline(f, line);
+            std::istringstream iss(line);
+            int startnode, endnode, weight;
+            iss >> startnode >> endnode >> weight;
+//           cout << startnode << "->" << endnode << endl;
+            adjacencyMatrix[startnode][endnode] = weight;
+            adjacencyMatrix[endnode][startnode] = weight;
+
+        }
+
+
+    }
+
+    UndirectedGraphWithWeights(int n, int m) {
+        this->n = n;
+        this->m = m;
+        createGraph(n, m);
+    }
+
+    void createGraph(int n, int m) {
+        adjacencyMatrix = new int *[n];
+
+        for (int i = 0; i < n; i++) {
+            adjacencyMatrix[i] = new int[n];
+        }
+        for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) adjacencyMatrix[i][j] = 0;
+        for (int i = 0; i < n; i++) {
+            vertices.emplace_back(i, 0);
+        }
+        int tm = m;
+        cout << "Enter the edges: ";
+        while (tm--) {
+
+
+            int startnode, endnode, weight;
+            cin >> startnode >> endnode >> weight;
+//            cout << startnode << " -> " << endnode << endl;
+
+            adjacencyMatrix[startnode][endnode] = weight;
+            adjacencyMatrix[endnode][startnode] = weight;
+
+        }
+
+
+    }
+
+    void printAdjacencyMatrix() {
+        printf("|  ");
+        for (int i = 0; i < n; i++) {
+            printf("%d_", i);
+        }
+
+        printf("\n");
+
+
+        for (int i = 0; i < n; i++) {
+            printf("%d| ", i);
+            for (int j = 0; j < n; j++) {
+                printf("%d ", adjacencyMatrix[i][j] == INT32_MAX ? 0 : adjacencyMatrix[i][j]);
+            }
+
+            printf("\n");
+        }
+    }
+
+    void createAdjacencyListFromMatrix() {
+        adjacencyList = new vector<vector<adjacencyListEdge>>;
+        for (int i = 0; i < n; i++) {
+            auto vec = new vector<adjacencyListEdge>;
+            for (int j = 0; j < n; j++) {
+
+                if (adjacencyMatrix[i][j] != INT32_MAX) {
+                    vec->push_back(adjacencyListEdge(&vertices.at(j), adjacencyMatrix[i][j]));
+                }
+
+            }
+            adjacencyList->push_back(*vec);
+        }
+
+    }
+
+    void printAdjacencyList() {
+        for (int i = 0; i < n; i++) {
+            printf("%d: ", i);
+            vector<adjacencyListEdge > linkedList = adjacencyList->at(i);
+            for (auto ver: linkedList) {
+                printf("%d -> ", ver.vertex->value);
+            }
+            printf("\n");
+
+
+        }
+
+
+    }
+
+    void createEdges() {
+        for (int i = 0; i < this->n; i++) {
+            for (int j = 0; j < this->n; j++) {
+                if (adjacencyMatrix[i][j] != INT32_MAX) {
+                    edges.push_back(Edge(&vertices[i], &vertices[j], adjacencyMatrix[i][j]));
+                }
+            }
+        }
+    }
+
+    void printEdges() {
+        for (auto edge: edges) {
+            printf("%d -> %d (%d)\n", edge.u->value, edge.v->value, edge.weight);
+        }
+    }
+
+
+    static UndirectedGraphWithWeights *Inverse(UndirectedGraphWithWeights *G);
+};
+
+UndirectedGraphWithWeights *UndirectedGraphWithWeights::Inverse(UndirectedGraphWithWeights *argG) {
+    UndirectedGraphWithWeights *G = new UndirectedGraphWithWeights(true);
+    G->n = argG->n;
+    G->m = argG->m;
+    G->adjacencyMatrix = new int *[G->n];
+
+    G->vertices = argG->vertices;
+
+    for (int i = 0; i < G->n; i++) {
+        G->adjacencyMatrix[i] = new int[G->n];
+    }
+
+
+    for (int i = 0; i < argG->n; i++) {
+        for (int j = 0; j < argG->n; j++) {
+            G->adjacencyMatrix[i][j] = argG->adjacencyMatrix[j][i];
+        }
+    }
+    return G;
+}
+

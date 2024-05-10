@@ -1,0 +1,4 @@
+# ninja log v5
+0	35	1700917605754949858	build.ninja	9423c1461ce37ac7
+0	222	1700900313838537109	CMakeFiles/BlindCodingCodes.dir/Pattern.c.o	2287063cf4aac60b
+222	262	1700900313878412745	BlindCodingCodes	27d5515bc51985d

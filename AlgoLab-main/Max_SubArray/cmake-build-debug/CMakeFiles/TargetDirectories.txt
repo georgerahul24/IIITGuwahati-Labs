@@ -1,0 +1,3 @@
+/Users/gr/Desktop/C/Max_SubArray/cmake-build-debug/CMakeFiles/Max_SubArray.dir
+/Users/gr/Desktop/C/Max_SubArray/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/gr/Desktop/C/Max_SubArray/cmake-build-debug/CMakeFiles/rebuild_cache.dir

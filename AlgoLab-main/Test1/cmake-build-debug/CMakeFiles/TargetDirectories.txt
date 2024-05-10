@@ -1,0 +1,3 @@
+/Users/gr/Desktop/AlgoLab/Test1/cmake-build-debug/CMakeFiles/Test1.dir
+/Users/gr/Desktop/AlgoLab/Test1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/gr/Desktop/AlgoLab/Test1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

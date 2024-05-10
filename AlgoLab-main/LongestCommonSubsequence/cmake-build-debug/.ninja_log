@@ -1,0 +1,19 @@
+# ninja log v5
+0	658	1695910057092672846	CMakeFiles/LongestCommonSubsequence.dir/main.cpp.o	38cbba56f61071a6
+660	873	1695910057307132927	LongestCommonSubsequence	25f8e52ec31580b5
+7	395	1695910071381415018	CMakeFiles/LongestCommonSubsequence.dir/main.cpp.o	38cbba56f61071a6
+395	435	1695910071423907492	LongestCommonSubsequence	25f8e52ec31580b5
+7	645	1695910313945971723	CMakeFiles/LongestCommonSubsequence.dir/main.cpp.o	38cbba56f61071a6
+645	691	1695910313992584485	LongestCommonSubsequence	25f8e52ec31580b5
+8	634	1695922645426864694	CMakeFiles/LongestCommonSubsequence.dir/main.cpp.o	38cbba56f61071a6
+634	842	1695922645633574150	LongestCommonSubsequence	25f8e52ec31580b5
+7	410	1695922797190294218	CMakeFiles/LongestCommonSubsequence.dir/main.cpp.o	38cbba56f61071a6
+410	451	1695922797233292974	LongestCommonSubsequence	25f8e52ec31580b5
+7	412	1695922880761537832	CMakeFiles/LongestCommonSubsequence.dir/main.cpp.o	38cbba56f61071a6
+412	457	1695922880808129811	LongestCommonSubsequence	25f8e52ec31580b5
+7	618	1695923258118355542	CMakeFiles/LongestCommonSubsequence.dir/main.cpp.o	38cbba56f61071a6
+618	665	1695923258166130336	LongestCommonSubsequence	25f8e52ec31580b5
+7	442	1695923319894347700	CMakeFiles/LongestCommonSubsequence.dir/main.cpp.o	38cbba56f61071a6
+442	488	1695923319941446743	LongestCommonSubsequence	25f8e52ec31580b5
+7	398	1695923336900362436	CMakeFiles/LongestCommonSubsequence.dir/main.cpp.o	38cbba56f61071a6
+398	437	1695923336941002330	LongestCommonSubsequence	25f8e52ec31580b5

@@ -1,0 +1,3 @@
+/Users/gr/Desktop/C/ArithmeticTree/cmake-build-debug/CMakeFiles/ArithmeticTree.dir
+/Users/gr/Desktop/C/ArithmeticTree/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/gr/Desktop/C/ArithmeticTree/cmake-build-debug/CMakeFiles/rebuild_cache.dir

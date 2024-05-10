@@ -1,0 +1,9 @@
+# ninja log v5
+1	44	1692444308317065671	CMakeFiles/Assignment2_Q2.dir/mergeArrays.cpp.o	18f3919fe2dd0d81
+0	546	1692444308812009709	CMakeFiles/Assignment2_Q2.dir/main.cpp.o	d94dec6064985a41
+1	761	1692444309028611486	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	441e2a7028e784fe
+0	802	1692444309072121366	CMakeFiles/Assignment2_Q2.dir/Test.cpp.o	db21a7884837d2b2
+1	1821	1692444310087963136	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	2fddd207ce85d50
+1822	1858	1692444310132532000	lib/libgtest.a	6dc1da8fdabc49e1
+1858	1876	1692444310150463000	lib/libgtest_main.a	ba85c526b4b61289
+1876	1927	1692444310200865592	Assignment2_Q2	79d74ccf591a2629

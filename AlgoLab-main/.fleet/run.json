@@ -1,0 +1,12 @@
+{
+    "configurations": [
+   
+        {
+            "type": "command",
+            "name": "build",
+            "program": "/usr/bin/g++",
+            "args": ["$PROJECT_DIR$/main.cpp", "-std=c++17", "-pthread", "-O3", "-o", "solution"],
+
+        },
+    ]
+}

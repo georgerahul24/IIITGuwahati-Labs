@@ -1,0 +1,21 @@
+# ninja log v5
+0	10	1692444243287684666	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	453793c776cf983e
+4570	4579	1692444247857505421	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	23c01242023ae308
+0	10	1692444243287684666	/Users/gr/Desktop/AlgoLab/Assignment2/Assignment2_Q2/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	453793c776cf983e
+4606	4614	1692444247892257542	/Users/gr/Desktop/AlgoLab/Assignment2/Assignment2_Q2/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	e35ca99d70817461
+4558	4570	1692444247847946077	/Users/gr/Desktop/AlgoLab/Assignment2/Assignment2_Q2/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	fc9cf3617f43e37f
+4614	4626	1692444247904224430	CMakeFiles/googletest-populate-complete	f1425fb920d77356
+4558	4570	1692444247847946077	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	fc9cf3617f43e37f
+4588	4597	1692444247875065190	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	78eecdded2d8e784
+10	4558	1692444247835794981	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	cbbdc0371ab46a50
+10	4558	1692444247835794981	/Users/gr/Desktop/AlgoLab/Assignment2/Assignment2_Q2/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	cbbdc0371ab46a50
+4614	4626	1692444247904224430	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	f1425fb920d77356
+4588	4597	1692444247875065190	/Users/gr/Desktop/AlgoLab/Assignment2/Assignment2_Q2/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	78eecdded2d8e784
+4597	4605	1692444247883657783	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	e723dd45a624e735
+4597	4605	1692444247883657783	/Users/gr/Desktop/AlgoLab/Assignment2/Assignment2_Q2/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	e723dd45a624e735
+4570	4579	1692444247857505421	/Users/gr/Desktop/AlgoLab/Assignment2/Assignment2_Q2/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	23c01242023ae308
+4614	4626	1692444247904224430	/Users/gr/Desktop/AlgoLab/Assignment2/Assignment2_Q2/cmake-build-debug/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete	f1425fb920d77356
+4606	4614	1692444247892257542	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	e35ca99d70817461
+4579	4588	1692444247866435430	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	8e7cae6f06e56217
+4579	4588	1692444247866435430	/Users/gr/Desktop/AlgoLab/Assignment2/Assignment2_Q2/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	8e7cae6f06e56217
+4614	4626	1692444247904224430	/Users/gr/Desktop/AlgoLab/Assignment2/Assignment2_Q2/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	f1425fb920d77356
